@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [Loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ function Login() {
     let data = await res.json();
     console.log({ data });
     if (res.status == 200) {
-      alert("login sucussfull");
+      alert("Login successfully");
       setLoading(false);
     } else {
       console.log("errorr");
@@ -57,9 +58,9 @@ function Login() {
                       setemail(e.target.value);
                     }}
                   />
-                  <div id="emailHelp" className="form-text">
+                  {/* <div id="emailHelp" className="form-text">
                     We'll never share your email with anyone else.
-                  </div>
+                  </div> */}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="exampleInputPassword1" className="form-label">
@@ -76,7 +77,7 @@ function Login() {
                     }}
                   />
                 </div>
-                <div className="mb-3 form-check">
+                {/* <div className="mb-3 form-check">
                   <input
                     type="checkbox"
                     className="form-check-input"
@@ -85,7 +86,7 @@ function Login() {
                   <label className="form-check-label" htmlFor="exampleCheck1">
                     Remember me
                   </label>
-                </div>
+                </div> */}
                 <button
                   type="submit"
                   className="btn btn-primary w-100 mt-4 rounded-pill"
@@ -96,8 +97,9 @@ function Login() {
                   Login
                 </button>
                 <div className="form-text" style={{ marginTop: "2rem" }}>
-                  Don't Have an account ??{" "}
-                  {/* <NavLink to="/Register">Register</NavLink> */}
+                <Link to="/register" style={{textDecoration : "none"}}>
+                  Don't have an account ?
+                  </Link>
                 </div>
               </form>
             </div>

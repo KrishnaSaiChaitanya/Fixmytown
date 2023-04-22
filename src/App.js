@@ -1,4 +1,5 @@
 import "./App.css";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import { createContext, useEffect, useState } from "react";
 import Tabview from "./components/Mapcomponents/Tabview";
@@ -19,45 +20,45 @@ function App() {
   console.log("this is imp", pos);
   useEffect(() => {
     getCoordinates().then((position) => {
-      // console.log([position.coords.latitude, position.coords.longitude]);
       setcoords({
         ...coords,
         lat: position.coords.latitude,
         long: position.coords.longitude,
       });
-      // console.log(coords);
     });
     localStorage.setItem(
       "Zone",
       JSON.stringify({ radius: 100, coords: [26.8057227, 81.0202426] })
     );
-    // console.log(
-    //   "checking user : ",
-    //   isInCircle(
-    //     {
-    //       center: JSON.parse(localStorage.getItem("Zone")).coords,
-    //       radius: JSON.parse(localStorage.getItem("Zone")).radius,
-    //     },
-    //     { point: coords }
-    //   )
-    // );
   }, []);
 
   return (
     <div className="App">
-      {/* Render your Components Here  */}
-      {/* <positioncords.Provider value={{ pos, setpos }}>
-        <ZoneSelector />
-        <Form />
-      </positioncords.Provider> */}
-      {/* <ZonalAdmin /> */}
-      {/* <Login /> */}
-      <Profile />
-      {/* <Register /> */}
-      {/* <Tabview /> */}
-      {/* <Form /> */}
-      {/* <Admin /> */}
-      {/* End */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/zonalAdmin/dashboard" element={<ZonalAdmin />} />
+          <Route path="/tabView" element={<Tabview />} />
+          <Route path="/admin/dashboard" element={<Admin />} />
+          <Route
+            path="/user/newReport"
+            element={
+              <positioncords.Provider value={{ pos, setpos }}>
+                <Form />
+              </positioncords.Provider>
+            }
+          />
+          <Route
+            path="/zone"
+            element={
+              <positioncords.Provider value={{ pos, setpos }}>
+                <ZoneSelector />
+              </positioncords.Provider>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

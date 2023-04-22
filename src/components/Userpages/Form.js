@@ -66,7 +66,7 @@ const Form = ({ submitCallback }) => {
             location: !posUser
               ? { lat: lat, long: long }
               : { lat: posUser.pos.lat, long: posUser.pos.lng },
-            picurl: result.url,
+            reporturl: result.url,
             cat: value,
           }),
           headers: {

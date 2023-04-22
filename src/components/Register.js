@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [email, setemail] = useState("");
@@ -22,7 +23,7 @@ function Register() {
     console.log({ data });
     if (data) {
       console.log("sucuss");
-      alert("Sucussfully registred");
+      alert("Sucussfully registered");
     } else {
       console.log("error ocurred");
     }
@@ -39,6 +40,7 @@ function Register() {
             />
           </div>
           <div className="col-md-6 order-md-1 p-5">
+            <h1 className="display-6 fw-bolder mb-5">REGISTER</h1>
             <form>
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">
@@ -106,8 +108,10 @@ function Register() {
               >
                 Register
               </button>
-              <div className="form-text mt-3 text-center">
-                Already Have an account?
+              <div className="form-text" style={{ marginTop: "2rem" }}>
+                <Link to="/login" style={{ textDecoration: "none" }}>
+                  Already have an Account ?
+                </Link>
               </div>
             </form>
           </div>
