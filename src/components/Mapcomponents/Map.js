@@ -7,8 +7,9 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon, LatLngBounds, LayerGroup } from "leaflet";
 import { Button } from "primereact/button";
-import ModalView from "./Modal";
-import { getCoordinates } from "./Utilfunc";
+
+import { getCoordinates } from "../Utilfunc";
+import ModalView from "../Modal";
 
 function Map(props) {
   const [coords, setcoords] = useState({ lat: 0, long: 1 });

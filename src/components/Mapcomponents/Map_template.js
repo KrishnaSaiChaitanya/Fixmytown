@@ -7,8 +7,6 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon, LatLngBounds, LayerGroup } from "leaflet";
 import { Button } from "primereact/button";
-import ModalView from "./Modal";
-import { getCoordinates } from "./Utilfunc";
 
 function Map_template(props) {
   useEffect(() => {

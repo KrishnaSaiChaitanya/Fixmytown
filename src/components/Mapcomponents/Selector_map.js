@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { positioncords } from "../App";
+import { positioncords } from "../../App";
 
 function DraggableMarker({ onMarkerChange, center }) {
   const [position, setPosition] = useState(center);

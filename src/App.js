@@ -1,12 +1,16 @@
 import "./App.css";
-import Map from "./components/Map";
-import ZoneSelector from "./components/ZoneSelector";
+
 import { createContext, useEffect, useState } from "react";
-import Tabview from "./components/Tabview";
+import Tabview from "./components/Mapcomponents/Tabview";
 import { getCoordinates, isInCircle } from "./components/Utilfunc";
-import Selector_map from "./components/Selector_map";
-import Form from "./components/Form";
+
+import Form from "./components/Userpages/Form";
 import Admin from "./components/Admin/Admin";
+import ZoneSelector from "./components/Mapcomponents/ZoneSelector";
+import ZonalAdmin from "./components/ZonalAdmin/ZonalAdmin";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Profile from "./components/Userpages/Profile";
 export const positioncords = createContext();
 
 function App() {
@@ -42,11 +46,14 @@ function App() {
   return (
     <div className="App">
       {/* Render your Components Here  */}
-      <positioncords.Provider value={{ pos, setpos }}>
+      {/* <positioncords.Provider value={{ pos, setpos }}>
         <ZoneSelector />
         <Form />
-      </positioncords.Provider>
-
+      </positioncords.Provider> */}
+      {/* <ZonalAdmin /> */}
+      {/* <Login /> */}
+      <Profile />
+      {/* <Register /> */}
       {/* <Tabview /> */}
       {/* <Form /> */}
       {/* <Admin /> */}

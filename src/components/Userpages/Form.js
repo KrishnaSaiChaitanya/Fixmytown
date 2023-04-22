@@ -7,8 +7,9 @@ import { ProgressBar } from "primereact/progressbar";
 import { Tag } from "primereact/tag";
 
 import { Dialog } from "primereact/dialog";
-import Selector_map from "./Selector_map";
-import { positioncords } from "../App";
+
+import { positioncords } from "../../App";
+import Selector_map from "../Mapcomponents/Selector_map";
 
 const Form = ({ submitCallback }) => {
   const [marker, setMarker] = useState(null);

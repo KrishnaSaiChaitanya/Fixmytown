@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AutoComplete } from "primereact/autocomplete";
-import { Zonelist } from "./Data";
+
 import { Inplace, InplaceDisplay, InplaceContent } from "primereact/inplace";
 import Map_template from "./Map_template";
-import { getCoordinates } from "./Utilfunc";
+
 import { Checkbox } from "primereact/checkbox";
 import { Dialog } from "primereact/dialog";
 import Selector_map from "./Selector_map";
 import { Button } from "primereact/button";
-import { positioncords } from "../App";
+import { getCoordinates } from "../Utilfunc";
+import { positioncords } from "../../App";
+import { Zonelist } from "../Data";
 
 function ZoneSelector() {
   const [countries, setCountries] = useState([]);
