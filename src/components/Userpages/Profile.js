@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Divider } from "primereact/divider";
-import mainlogo from "../../mainlogo.svg";
+import logo from "../../logo.svg";
 import { Button } from "primereact/button";
 import { Tag } from "primereact/tag";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const [customers, setCustomers] = useState([]);
@@ -84,28 +85,24 @@ export default function Profile() {
   }
 
   return (
-    <div className="grid  grid-nogutter" style={{ width: "100%" }}>
-      <div
-        className="col-12 "
-        style={{
-          display: "flex",
-          backgroundColor: "#cddded",
-          justifyContent: "space-between",
-          width: "100%",
-        }}
-      >
-        <div className="flex align-items-center">
-          <img src={mainlogo} style={{ height: "120px" }} className="" />
-          <h4 className="p-2">Fix my Town</h4>
+    <>
+    <nav className="md:px-14 px-4 nav-clr mx-auto flex items-center md:flex justify-between sticky top-0" style={{height : "15vh"}}>
+        <img src={logo} style={{height : "100px"}}/>
+        <h4 className="p-2">Fix my Town</h4>
+        <div className="block md:hidden">
+          <button className="custom-img"></button>
         </div>
-        <Button text rounded>
-          <img
-            alt="logo"
-            src="../images/profile-2.png"
-            className="h-5rem"
-          ></img>
-        </Button>
-      </div>
+        <ul className="custom-nav">
+          {/* <li className="px-2 cursor-pointer text-gray-600">Home</li>
+          <li className="px-2 cursor-pointer text-gray-600">Careers</li>
+          <li className="px-2 cursor-pointer text-gray-600">About Us</li> */}
+          <li className="px-2 w-32 py-2 button-clr-primary rounded-lg text-center font-medium">
+            <button><Link to="/register" className="text-white" style={{textDecoration : "none"}}>Logout</Link></button>
+          </li>
+        </ul>
+      </nav>
+    <div className="grid  grid-nogutter" style={{ width: "100%" }}>
+      
       <div className="grid  grid-nogutter col-12 p-3">
         <div className="col-6 flex align-items-center justify-content-center">
           <img src="../images/profile.jpg" style={{ height: "35vh" }} />
@@ -162,5 +159,6 @@ export default function Profile() {
         </DataTable>
       </div>
     </div>
+    </>
   );
 }

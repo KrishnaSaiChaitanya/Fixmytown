@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import { createContext, useEffect, useState } from "react";
 import Tabview from "./components/Mapcomponents/Tabview";
-import { getCoordinates, isInCircle } from "./components/Utilfunc";
+import { getCoordinates } from "./components/Utilfunc";
 
 import Form from "./components/Userpages/Form";
 import Admin from "./components/Admin/Admin";

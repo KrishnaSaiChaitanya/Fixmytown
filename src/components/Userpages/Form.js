@@ -5,7 +5,7 @@ import { SelectButton } from "primereact/selectbutton";
 import { FileUpload } from "primereact/fileupload";
 import { ProgressBar } from "primereact/progressbar";
 import { Tag } from "primereact/tag";
-import mainlogo from "../../mainlogo.svg";
+import logo from "../../logo.svg";
 import { Dialog } from "primereact/dialog";
 
 import { positioncords } from "../../App";
@@ -19,7 +19,7 @@ const Form = ({ submitCallback }) => {
   const items = [
     { name: "Sewage", value: "Sewage" },
     { name: "Litter", value: "Litter" },
-    { name: "Pithole", value: "Pithole" },
+    { name: "Pothole", value: "Pothole" },
   ];
   const posUser = useContext(positioncords);
   console.log("i am from form", posUser.pos.lat, posUser.pos.lng);
@@ -254,7 +254,7 @@ const Form = ({ submitCallback }) => {
         style={{ backgroundColor: "skyblue" }}
       >
         <div className="flex align-items-center">
-          <img src={mainlogo} style={{ height: "120px" }} className="" />
+          <img src={logo} height={100} className="" />
           <h4 className="p-2">Fix my Town</h4>
         </div>
       </div>
