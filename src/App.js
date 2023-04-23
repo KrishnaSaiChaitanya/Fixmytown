@@ -13,6 +13,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Userpages/Profile";
 import Dasboard from "./components/Userpages/Dasboard";
+import LandingPage from "./Pages/LandingPage"
 export const positioncords = createContext();
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dasboard />} />
