@@ -44,6 +44,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/Adminlogin" element={<Adminlogin />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/user/dashboard" element={<Dasboard />} />
           <Route path="/zonalAdmin/dashboard" element={<ZonalAdmin />} />
           <Route path="/dashboard" element={<PaginatorBasicDemo />} />

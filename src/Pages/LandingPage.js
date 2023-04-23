@@ -128,8 +128,8 @@ export default function LandingPage() {
       </div>
 
       <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4" style={{backgroundColor : "#f5f5f5"}}>
-        <div className="hidden md:w-1/3 md:block">
-          <img src={number1} alt="img.." className="w-2/5"  />
+        <div className="hidden md:w-2/5 md:block">
+          <img src={""} alt="img.." className="h-11/12 w-11/12" />
         </div>
         <div className="flex flex-col px-4 md:w-3/5 gap-3">
           <span className="text-4xl font-semibold">Step 1</span>
@@ -150,8 +150,8 @@ export default function LandingPage() {
       </div>
 
       <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4" style={{backgroundColor : "#f5f5f5"}}>
-        <div className="hidden md:w-1/3 md:block">
-          <img src={number3} alt="img.." className="w-2/5" />
+        <div className="hidden md:w-2/5 md:block">
+          <img src={""} alt="img.." className="h-11/12 w-11/12" />
         </div>
         <div className="flex flex-col px-4 md:w-3/5 gap-3">
           <span className="text-4xl font-semibold">Step 3</span>
@@ -170,7 +170,6 @@ export default function LandingPage() {
           <img src={number4} alt="img.." className="w-2/5" />
         </div>
       </div>
-
     </div>
   );
 }
