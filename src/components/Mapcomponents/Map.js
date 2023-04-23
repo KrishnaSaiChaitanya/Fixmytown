@@ -12,18 +12,18 @@ import { getCoordinates } from "../Utilfunc";
 import ModalView from "../Modal";
 
 function Map(props) {
-  const [coords, setcoords] = useState({ lat: 0, long: 1 });
-  useEffect(() => {
-    let obj = {};
-    getCoordinates().then((position) => {
-      obj = {
-        lat: position.coords.latitude,
-        long: position.coords.longitude,
-      };
-      setcoords(obj);
-      console.log(obj);
-    });
-  }, []);
+  const [coords, setcoords] = useState(props.center);
+  // useEffect(() => {
+  //   let obj = {};
+  //   getCoordinates().then((position) => {
+  //     obj = {
+  //       lat: position.coords.latitude,
+  //       long: position.coords.longitude,
+  //     };
+  //     setcoords(obj);
+  //     console.log(obj);
+  //   });
+  // }, []);
 
   const [curDesc, setcurDesc] = useState("");
   const [data, setdata] = useState([
@@ -80,7 +80,7 @@ function Map(props) {
           //       JSON.parse(localStorage.getItem("user")).coordinates[0],
           //       JSON.parse(localStorage.getItem("user")).coordinates[1],
           //     ]
-          [coords.lat, coords.long]
+          [props.center.lat, props.center.long]
         }
         zoom={13}
         scrollWheelZoom={false}

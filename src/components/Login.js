@@ -1,7 +1,9 @@
+import { Button } from "primereact/button";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const [Loading, setLoading] = useState(false);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -24,6 +26,7 @@ function Login() {
     if (res.status == 200) {
       alert("Login successfully");
       setLoading(false);
+      navigate("/dashboard");
     } else {
       console.log("errorr");
     }
@@ -34,7 +37,7 @@ function Login() {
         <div className="row">
           <div className="col-md-6 p-5 d-flex align-items-center justify-content-center">
             <img
-              src={"../images/Log.jpg"}
+              src={"../images/login.jpg"}
               alt="Your image"
               style={{ width: "100%", maxHeight: "100%" }}
             />
@@ -87,18 +90,35 @@ function Login() {
                     Remember me
                   </label>
                 </div> */}
-                <button
+                <div className="p-3 pb-2 flex align-item-center justify-content-center">
+                  <Button
+                    loading={Loading}
+                    label="Submit"
+                    rounded
+                    className="w-5"
+                    onClick={(e) => {
+                      handleSubmit(e);
+                    }}
+                  />
+                </div>
+
+                {/* <button
                   type="submit"
                   className="btn btn-primary w-100 mt-4 rounded-pill"
-                  onClick={(e) => {
-                    handleSubmit(e);
-                  }}
                 >
                   Login
-                </button>
-                <div className="form-text" style={{ marginTop: "2rem" }}>
-                <Link to="/register" style={{textDecoration : "none"}}>
-                  Don't have an account ?
+                </button> */}
+                <div
+                  className="form-text"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  Don't have an account ? {"   "}
+                  <Link to="/register" style={{ textDecoration: "none" }}>
+                    register here
                   </Link>
                 </div>
               </form>

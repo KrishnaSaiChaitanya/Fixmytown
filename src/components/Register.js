@@ -32,17 +32,26 @@ function Register() {
     <div>
       <div className="container my-3">
         <div className="row">
-          <div className="col-md-6 order-md-2 p-5">
+          <div className="col-md-6 order-md-5">
             <img
-              src={"../images/Reg.jpg"}
+              src={"../images/register.jpg"}
               alt="Your image"
               className="img-fluid"
+              height={450}
             />
           </div>
-          <div className="col-md-6 order-md-1 p-5">
-            <h1 className="display-6 fw-bolder mb-5">REGISTER</h1>
-            <form>
-              <div className="mb-3">
+          <div
+            className="col-md-6 order-md-1 "
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "50%",
+            }}
+          >
+            <form style={{ width: "100%", padding: "30px" }}>
+              <h1 className="display-6 fw-bolder mb-3">REGISTER</h1>
+              <div className="mb-1">
                 <label htmlFor="name" className="form-label">
                   Username
                 </label>
@@ -57,7 +66,7 @@ function Register() {
                   }}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-1">
                 <label htmlFor="exampleInputEmail1" className="form-label">
                   Email address
                 </label>
@@ -76,7 +85,7 @@ function Register() {
                   We'll never share your email with anyone else.
                 </div>
               </div>
-              <div className="mb-3">
+              <div className="mb-1">
                 <label htmlFor="exampleInputPassword1" className="form-label">
                   Password
                 </label>
@@ -91,7 +100,7 @@ function Register() {
                   }}
                 />
               </div>
-              <div className="mb-3 form-check">
+              <div className="mb-1 form-check">
                 <input
                   type="checkbox"
                   className="form-check-input"

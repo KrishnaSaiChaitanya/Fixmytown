@@ -12,6 +12,7 @@ import ZonalAdmin from "./components/ZonalAdmin/ZonalAdmin";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Userpages/Profile";
+import Dasboard from "./components/Userpages/Dasboard";
 export const positioncords = createContext();
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dasboard />} />
           <Route path="/zonalAdmin/dashboard" element={<ZonalAdmin />} />
           <Route path="/tabView" element={<Tabview />} />
           <Route path="/admin/dashboard" element={<Admin />} />
