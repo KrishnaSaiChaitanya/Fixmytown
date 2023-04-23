@@ -13,38 +13,14 @@ import ModalView from "../Modal";
 
 function Map(props) {
   const [coords, setcoords] = useState(props.center);
-  // useEffect(() => {
-  //   let obj = {};
-  //   getCoordinates().then((position) => {
-  //     obj = {
-  //       lat: position.coords.latitude,
-  //       long: position.coords.longitude,
-  //     };
-  //     setcoords(obj);
-  //     console.log(obj);
-  //   });
-  // }, []);
+  const [data, setdata] = useState([]);
+  useEffect(() => {
+    console.log("from map", props);
+    setdata(props.data);
+  }, []);
 
   const [curDesc, setcurDesc] = useState("");
-  const [data, setdata] = useState([
-    {
-      coords: [45.51, -0.1],
-      des: "Data 1",
-    },
-    {
-      coords: [38.51, -0.4],
-      des: "Data 2",
-    },
-    {
-      coords: [42.51, -0.78],
-      des: "Data 3",
-    },
-    {
-      coords: [55.51, 0.3],
-      des: "Data 4",
-    },
-    { coords: [65.51, -23.14] },
-  ]);
+  const [curimg, setcurimg] = useState("");
   const position = [51.505, -0.09];
   const [modal, setmodal] = useState(false);
   const bounds = new LatLngBounds([45.51, -0.1], [56.51, 1.14]);
@@ -111,43 +87,45 @@ function Map(props) {
         {/* <LayerGroup>
 
         </LayerGroup> */}
-        {data.map((itm) => (
-          <Marker
-            position={itm.coords}
-            icon={
-              new Icon({
-                iconUrl: props.url,
-                iconSize: [45, 41],
-                iconAnchor: [8, 11],
-              })
-            }
-          >
-            <Popup>
-              <div className="">
-                <img src="../images/pothole.png" height={150} />
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    padding: "5px",
-                  }}
-                >
-                  <Button
-                    icon="pi pi-info"
-                    rounded
-                    onClick={() => {
-                      setcurDesc(() => itm.des);
-                      setmodal(true);
+        {data &&
+          data.map((itm) => (
+            <Marker
+              position={[itm.location.lat, itm.location.long]}
+              icon={
+                new Icon({
+                  iconUrl: props.url,
+                  iconSize: [45, 41],
+                  iconAnchor: [8, 11],
+                })
+              }
+            >
+              <Popup>
+                <div className="">
+                  <img src={itm.reporturl} height={150} className="p-1" />
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      padding: "5px",
                     }}
-                    text
-                    severity="success"
-                    aria-label="Search"
-                  />
+                  >
+                    <Button
+                      icon="pi pi-info"
+                      rounded
+                      onClick={() => {
+                        setcurDesc(() => "description");
+                        setcurimg(itm.reporturl);
+                        setmodal(true);
+                      }}
+                      text
+                      severity="success"
+                      aria-label="Search"
+                    />
+                  </div>
                 </div>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+              </Popup>
+            </Marker>
+          ))}
         <Marker
           position={
             JSON.parse(localStorage.getItem("user")).coordinates

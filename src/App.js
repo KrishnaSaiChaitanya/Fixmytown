@@ -13,6 +13,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Userpages/Profile";
 import Dasboard from "./components/Userpages/Dasboard";
+import Adminlogin from "./Adminlogin";
 export const positioncords = createContext();
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/Adminlogin" element={<Adminlogin />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dasboard />} />
           <Route path="/zonalAdmin/dashboard" element={<ZonalAdmin />} />

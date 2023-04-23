@@ -7,8 +7,41 @@ import Map from "../Mapcomponents/Map";
 import { useEffect } from "react";
 import { getCoordinates } from "../Utilfunc";
 import { Link } from "react-router-dom";
+import mainlogo from "../../mainlogo.svg";
+import { Divider } from "primereact/divider";
 
 function Dasboard() {
+  const [data, setdata] = useState([]);
+  const [loading, setloading] = useState(false);
+  const [option, setoption] = useState(null);
+  const handleSubmit = async (e) => {
+    setloading(true);
+    console.log("i am from dashbord", option.code);
+    // e.preventDefault();
+    let res = await fetch("http://localhost:5000/api/reports/zonalReports", {
+      method: "POST",
+      body: JSON.stringify({
+        location: { lat: 26.799594133401428, long: 81.00983287128457 },
+        radius: 30,
+        category: option.code,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDM4YzdmM2U3ODUxZTNlN2NmMTExNCIsImlhdCI6MTY4MjE0ODU3MX0.NMgOyTyWkfMIRmOMFMa_r-CTcbfcriyqPCNPRfWHYn0`,
+      },
+    });
+    let data = await res.json();
+    console.log({ data });
+    if (res.status == 200) {
+      setdata(data);
+      console.log(data);
+      alert("Data recieved Sucussfully");
+      setloading(false);
+    } else {
+      console.log("errorr");
+    }
+    setloading(false);
+  };
   const [coords, setcoords] = useState({
     lat: 26.8057227,
     long: 81.0245123,
@@ -28,15 +61,24 @@ function Dasboard() {
     });
   }, []);
   console.log("from dashboard", coords);
-  const [option, setoption] = useState(null);
+
   const cities = [
-    { name: "Litter issues", code: "litter" },
-    { name: "Sewage issues", code: "sewage" },
-    { name: "Pothole issues", code: "pothole" },
+    { name: "Litter issues", code: "Litter" },
+    { name: "Sewage issues", code: "Sewage" },
+    { name: "Pothole issues", code: "Pothole" },
   ];
   return (
     <div>
       <div className="grid grid-nogutter">
+        <div
+          className="col-12 flex pl-5 justify-content-center"
+          style={{ backgroundColor: "skyblue" }}
+        >
+          <div className="flex align-items-center">
+            <img src={mainlogo} height={100} className="" />
+            <h4 className="p-2">Fix my Town</h4>
+          </div>
+        </div>
         <div className="col-12 flex justify-content-center">
           <img src="../images/dashboard.jpg" height={400} />
         </div>
@@ -108,9 +150,15 @@ function Dasboard() {
             </div>
           </div>
         </div>
-        <div className="col-4"></div>
+        <Divider type="solid" />
+        <div className="col-12 p-3">
+          <h3 className="text-center">View reports in your Locality</h3>
+        </div>
+        <div className="col-12 flex align-items-center justify-content-center p-3">
+          <Button icon="pi pi-arrow-down" rounded outlined />
+        </div>
         <div
-          className="col-4 flex justify-content-center p-3"
+          className="col-12 flex justify-content-center p-3"
           style={{ border: "1p dotted" }}
         >
           <Dropdown
@@ -118,19 +166,39 @@ function Dasboard() {
             onChange={(e) => setoption(e.value)}
             options={cities}
             optionLabel="name"
-            placeholder="Select a City"
+            placeholder="Choose type of issue"
             className="w-full md:w-14rem"
           />
         </div>
-        <div className="col-4"></div>
+
         <div className="col-12">
           <div className="p-3 pb-2 flex align-item-center justify-content-center">
-            <Button label="Apply Filters" rounded className="w-3" outlined />
+            <Button
+              label="Apply Filters"
+              rounded
+              className="w-3"
+              outlined
+              onClick={handleSubmit}
+            />
           </div>
         </div>
-        <div className="col-12 p-6 py-3">
-          <Map center={coords} url={".../images/placeholder-3.png"} />
-        </div>
+        {!loading ? (
+          <div className="col-12 py-3" style={{ padding: "130px" }}>
+            <Map
+              center={coords}
+              url={
+                !option
+                  ? "../images/sewage.png"
+                  : `../images/${option.code}.png`
+              }
+              data={data}
+            />
+          </div>
+        ) : (
+          <div className=" col-12 flex align-item-center justify-content-center">
+            <img src="../images/gear-loader.gif" height={300} />
+          </div>
+        )}
       </div>
     </div>
   );

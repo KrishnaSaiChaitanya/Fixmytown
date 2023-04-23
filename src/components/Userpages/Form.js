@@ -5,14 +5,17 @@ import { SelectButton } from "primereact/selectbutton";
 import { FileUpload } from "primereact/fileupload";
 import { ProgressBar } from "primereact/progressbar";
 import { Tag } from "primereact/tag";
-
+import mainlogo from "../../mainlogo.svg";
 import { Dialog } from "primereact/dialog";
 
 import { positioncords } from "../../App";
 import Selector_map from "../Mapcomponents/Selector_map";
+import { Link, useNavigate } from "react-router-dom";
 
 const Form = ({ submitCallback }) => {
+  const navigate = useNavigate();
   const [marker, setMarker] = useState(null);
+  const [completed, setcompleted] = useState(false);
   const items = [
     { name: "Sewage", value: "Sewage" },
     { name: "Litter", value: "Litter" },
@@ -47,10 +50,16 @@ const Form = ({ submitCallback }) => {
   async function handleSubmit() {
     setLoading(true);
     const formData = new FormData();
-    console.log("upload button is clicked");
+    console.log(
+      "upload button is clicked",
+      fileUploadRef.current.getFiles()[0]
+    );
     formData.append("file", fileUploadRef.current.getFiles()[0]);
     formData.append("upload_preset", "ska0dni8");
-    formData.append("public_id", "Hackofestia/name");
+    formData.append(
+      "public_id",
+      `Hackofestia/${fileUploadRef.current.getFiles()[0].name}`
+    );
 
     fetch("https://api.cloudinary.com/v1_1/dsfems7vy/auto/upload", {
       method: "POST",
@@ -75,14 +84,13 @@ const Form = ({ submitCallback }) => {
           },
         });
         const data = await res.json();
-        if (res.status == 200) {
+        if (res.status === 200) {
           setLoading(false);
           console.log("Uploaded");
           console.log(data);
-          alert("uploaded Sucussfully");
+          setcompleted(true);
         } else {
           console.log(data);
-          setLoading(false);
         }
       });
     setLoading(false);
@@ -239,109 +247,148 @@ const Form = ({ submitCallback }) => {
   <iframe src="https://embed.lottiefiles.com/animation/99272"></iframe>;
 
   return (
-    <div style={{ backgroundColor: "white", width: "100%" }}>
+    <div className="grid grid-nogutter" style={{ backgroundColor: "white" }}>
       <div
-        className="grid grid-nogutter"
-        // className="flex align-items-center justify-content-center mt-8"
-        id="Form"
+        className="col-12 flex justify-content-center"
+        style={{ backgroundColor: "skyblue" }}
       >
-        <div className="col-12 text-center pt-4">
-          <div className="text-900 text-3xl font-medium mb-3">
-            Take action now and fill out this form to help preserve our planet
-            for future generations.
-          </div>
-          <span className="text-600 font-medium line-height-3">
-            Don't Know how our website work?
-          </span>
-          <a className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">
-            Click here!
-          </a>
-        </div>
-        <div className="col-12 p-6">
-          <div style={{ paddingTop: "20px", paddingInline: "180px" }}>
-            <FileUpload
-              ref={fileUploadRef}
-              name="demo[]"
-              url="https://primefaces.org/primereact/showcase/upload.php"
-              multiple
-              accept="image/*"
-              maxFileSize={1000000}
-              onUpload={onTemplateUpload}
-              onSelect={onTemplateSelect}
-              onError={onTemplateClear}
-              onClear={onTemplateClear}
-              headerTemplate={headerTemplate}
-              itemTemplate={itemTemplate}
-              emptyTemplate={emptyTemplate}
-              chooseOptions={chooseOptions}
-              uploadOptions={uploadOptions}
-              cancelOptions={cancelOptions}
-            />
-            <br />
-            <div className="flex justify-content-center">
-              <SelectButton
-                value={value}
-                onChange={(e) => setValue(e.value)}
-                optionLabel="name"
-                options={items}
-              />
-            </div>
-
-            <br />
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                padding: "20px",
-              }}
-            >
-              <Button
-                onClick={() => {
-                  setDisplay(true);
-                }}
-                label="Select a location"
-                className="w-half "
-                rounded
-                outlined
-              />
-            </div>
-            <Dialog
-              className="mt-3"
-              headerStyle={{ textAlign: "center" }}
-              visible={Display}
-              style={{ width: "60vw", height: "70vh" }}
-              onHide={() => {
-                setDisplay(false);
-              }}
-            >
-              <Selector_map
-                onMarkerchange={(pos) => {
-                  setMarker(pos);
-                  console.log(pos);
-                }}
-                center={{ lat: lat, lng: long }}
-              />
-            </Dialog>
-
-            <InputTextarea
-              rows={5}
-              placeholder="Enter description here  ........."
-              value={Description}
-              className="w-full"
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <br />
-            <br />
-            <Button
-              loading={loading}
-              onClick={handleSubmit}
-              label="Submit"
-              icon="pi pi-send"
-              className="w-full"
-            />
-          </div>
+        <div className="flex align-items-center">
+          <img src={mainlogo} height={100} className="" />
+          <h4 className="p-2">Fix my Town</h4>
         </div>
       </div>
+      {!completed ? (
+        <div
+          className="col-12 grid grid-nogutter"
+          // className="flex align-items-center justify-content-center mt-8"
+          id="Form"
+        >
+          <div className="col-12 flex align-items-center justify-content-center p-3">
+            <Button
+              onClick={() => navigate(-1)}
+              icon="pi pi-arrow-left"
+              rounded
+              outlined
+            />
+          </div>
+          <div className="col-12 text-center pt-4">
+            <div className="text-900 text-3xl font-medium mb-3">
+              Take action now and fill out this form to help preserve our planet
+              for future generations.
+            </div>
+            <span className="text-600 font-medium line-height-3">
+              Don't Know how our website work?
+            </span>
+            <a className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">
+              Click here!
+            </a>
+          </div>
+          <div className="col-12 p-6">
+            <div style={{ paddingTop: "20px", paddingInline: "180px" }}>
+              <FileUpload
+                ref={fileUploadRef}
+                name="demo[]"
+                url="https://primefaces.org/primereact/showcase/upload.php"
+                multiple
+                accept="image/*"
+                maxFileSize={1000000}
+                onUpload={onTemplateUpload}
+                onSelect={onTemplateSelect}
+                onError={onTemplateClear}
+                onClear={onTemplateClear}
+                headerTemplate={headerTemplate}
+                itemTemplate={itemTemplate}
+                emptyTemplate={emptyTemplate}
+                chooseOptions={chooseOptions}
+                uploadOptions={uploadOptions}
+                cancelOptions={cancelOptions}
+              />
+              <br />
+              <div className="flex justify-content-center">
+                <SelectButton
+                  value={value}
+                  onChange={(e) => setValue(e.value)}
+                  optionLabel="name"
+                  options={items}
+                />
+              </div>
+
+              <br />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  padding: "20px",
+                }}
+              >
+                <Button
+                  onClick={() => {
+                    setDisplay(true);
+                  }}
+                  label="Select a location"
+                  className="w-half "
+                  rounded
+                  outlined
+                />
+              </div>
+              <Dialog
+                className="mt-3"
+                headerStyle={{ textAlign: "center" }}
+                visible={Display}
+                style={{ width: "60vw", height: "70vh" }}
+                onHide={() => {
+                  setDisplay(false);
+                }}
+              >
+                <Selector_map
+                  onMarkerchange={(pos) => {
+                    setMarker(pos);
+                    console.log(pos);
+                  }}
+                  center={{ lat: lat, lng: long }}
+                />
+              </Dialog>
+
+              <InputTextarea
+                rows={5}
+                placeholder="Enter description here  ........."
+                value={Description}
+                className="w-full"
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <br />
+              <br />
+              <Button
+                loading={loading}
+                onClick={handleSubmit}
+                label="Submit"
+                icon="pi pi-send"
+                className="w-full"
+              />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="col-12 grid grid-nogutter flex align-items-center justify-content-center">
+          <div className="col-12 flex align-items-center justify-content-center p-4">
+            <img src="../images/Sucuss.gif" height={400} />
+          </div>
+          <div className="col-12">
+            {" "}
+            <h4 className="text-center">Reported Sucussfully</h4>
+          </div>
+          <div className="col-12 flex align-items-center justify-content-center p-3">
+            <Link to={"/dashboard"}>
+              <Button
+                label="G To Dashboard"
+                outlined
+                rounded
+                className="w-14rem"
+              />
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
