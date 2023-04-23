@@ -4,7 +4,7 @@ import { InputText } from "primereact/inputtext";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+function ZonalAdminLogin() {
   const navigate = useNavigate();
   const [Loading, setLoading] = useState(false);
   const [email, setemail] = useState("");
@@ -13,7 +13,7 @@ function Login() {
     setLoading(true);
     console.log(email, password);
     e.preventDefault();
-    let res = await fetch("http://localhost:5000/api/users/login", {
+    let res = await fetch("http://localhost:5000/api/zone/login", {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -31,7 +31,7 @@ function Login() {
       // console.log(res.data.token);
       localStorage.setItem("token", JSON.stringify(data.token));
       localStorage.setItem("user", JSON.stringify(data.token));
-      navigate("/user/dashboard");
+      navigate("/zonalAdmin/dashboard");
     } else {
       console.log("errorr");
     }
@@ -50,10 +50,13 @@ function Login() {
           <div className="col-md-6 p-5 d-flex align-items-center">
             <div className="w-100">
               <h1
-                className="display-5  mb-5"
-                style={{ justifyContent: "center", display: "flex" }}
+                style={{
+                  justifyContent: "center",
+                  display: "flex",
+                  padding: "20px",
+                }}
               >
-                LOGIN
+                ZonalAdmin Login
               </h1>
               <form>
                 <div className="mb-3 w-8 mx-auto">
@@ -128,32 +131,7 @@ function Login() {
                     alignItems: "center",
                     justifyContent: "center",
                   }}
-                >
-                  Don't have an account ? {"   "}
-                  <Link to="/register" style={{ textDecoration: "none" }}>
-                    register here
-                  </Link>
-                </div>
-                <div className="p-3 flex align-item-center justify-content-center">
-                  <Button
-                    icon="pi pi-user"
-                    label="Login as Admin"
-                    rounded
-                    outlined
-                    className="w-20rem"
-                  />
-                </div>
-                <div className="p-3 pt-1 flex align-item-center justify-content-center">
-                  <Link to="/ZonalAdminlogin">
-                    <Button
-                      icon="pi pi-user"
-                      label="Login as ZonalAdmin"
-                      rounded
-                      outlined
-                      className="w-20rem"
-                    />
-                  </Link>
-                </div>
+                ></div>
               </form>
             </div>
           </div>
@@ -163,4 +141,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ZonalAdminLogin;

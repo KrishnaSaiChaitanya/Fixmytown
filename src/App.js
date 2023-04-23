@@ -14,7 +14,8 @@ import Register from "./components/Register";
 import Profile from "./components/Userpages/Profile";
 import Dasboard from "./components/Userpages/Dasboard";
 import LandingPage from "./Pages/LandingPage";
-import Adminlogin from "./Adminlogin";
+import ZonalAdminLogin from "./components/ZonalAdminLogin";
+import AdminLogin from "./components/AdminLogin";
 export const positioncords = createContext();
 
 function App() {
@@ -41,8 +42,10 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/Adminlogin" element={<Adminlogin />} />
+          <Route path="/Adminlogin" element={<AdminLogin />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/zonalAdminlogin" element={<ZonalAdminLogin />} />
+
           <Route path="/profile" element={<Profile />} />
           <Route path="/user/dashboard" element={<Dasboard />} />
           <Route path="/zonalAdmin/dashboard" element={<ZonalAdmin />} />
