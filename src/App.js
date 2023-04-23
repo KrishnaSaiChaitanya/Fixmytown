@@ -46,7 +46,7 @@ function App() {
           <Route path="/tabView" element={<Tabview />} />
           <Route path="/admin/dashboard" element={<Admin />} />
           <Route
-            path="/user/newReport"
+            path="/Report"
             element={
               <positioncords.Provider value={{ pos, setpos }}>
                 <Form />
