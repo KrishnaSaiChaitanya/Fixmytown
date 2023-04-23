@@ -100,8 +100,12 @@ function Map(props) {
               }
             >
               <Popup>
-                <div className="">
-                  <img src={itm.reporturl} className="p-1" height={100} />
+                <div className="w-13rem">
+                  <img
+                    src={itm.reporturl}
+                    className="p-1"
+                    style={{ height: "18vh", width: "400px" }}
+                  />
                   <div
                     style={{
                       display: "flex",
@@ -113,7 +117,7 @@ function Map(props) {
                       icon="pi pi-info"
                       rounded
                       onClick={() => {
-                        setcurDesc(() => "description");
+                        setcurDesc(itm.desc);
                         setcurimg(itm.reporturl);
                         setmodal(true);
                       }}
