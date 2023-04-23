@@ -26,7 +26,7 @@ function ModalView(props) {
               padding: "5px",
             }}
           >
-            <img src="../images/pothole.png" height={150} />
+            <img src="../images/pothole.png" style={{ height: "20vh" }} />
           </div>
           <div className="col-6  ms-col-12">
             <p className="text-center">Date - 12-3-2023</p>
