@@ -7,7 +7,7 @@ import Map from "../Mapcomponents/Map";
 import { useEffect } from "react";
 import { getCoordinates } from "../Utilfunc";
 import { Link } from "react-router-dom";
-import mainlogo from "../../mainlogo.svg";
+import logo from "../../logo.svg";
 import { Divider } from "primereact/divider";
 
 function Dasboard() {
@@ -75,7 +75,7 @@ function Dasboard() {
           style={{ backgroundColor: "skyblue" }}
         >
           <div className="flex align-items-center">
-            <img src={mainlogo} height={100} className="" />
+            <img src={logo} height={100} className="" />
             <h4 className="p-2">Fix my Town</h4>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { SelectButton } from "primereact/selectbutton";
 import { FileUpload } from "primereact/fileupload";
 import { ProgressBar } from "primereact/progressbar";
 import { Tag } from "primereact/tag";
-import mainlogo from "../../mainlogo.svg";
+import logo from "../../logo.svg";
 import { Dialog } from "primereact/dialog";
 
 import { positioncords } from "../../App";
@@ -253,7 +253,7 @@ const Form = ({ submitCallback }) => {
         style={{ backgroundColor: "skyblue" }}
       >
         <div className="flex align-items-center">
-          <img src={mainlogo} height={100} className="" />
+          <img src={logo} height={100} className="" />
           <h4 className="p-2">Fix my Town</h4>
         </div>
       </div>

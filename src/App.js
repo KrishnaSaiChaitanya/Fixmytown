@@ -15,6 +15,7 @@ import Profile from "./components/Userpages/Profile";
 import Dasboard from "./components/Userpages/Dasboard";
 import LandingPage from "./Pages/LandingPage";
 import Adminlogin from "./Adminlogin";
+import PaginatorBasicDemo from "./components/Userpages/PaginatorBasicDemo";
 export const positioncords = createContext();
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/user/dashboard" element={<Dasboard />} />
           <Route path="/zonalAdmin/dashboard" element={<ZonalAdmin />} />
+          <Route path="/dashboard" element={<PaginatorBasicDemo />} />
           <Route path="/tabView" element={<Tabview />} />
           <Route path="/admin/dashboard" element={<Admin />} />
           <Route

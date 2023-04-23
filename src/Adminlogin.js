@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "primereact/button";
 
-import mainlogo from "../src/mainlogo.svg";
+import logo from "../src/logo.svg";
 
 export default function Adminlogin() {
   let [name, setName] = useState("");
@@ -45,7 +45,7 @@ export default function Adminlogin() {
     <>
       <div>
         <div className="text-center pt-6" style={{ backgroundColor: "white" }}>
-          <img src={mainlogo} alt="hyper" height={180} className="" />
+          <img src={logo} alt="hyper" height={180} className="" />
         </div>
         <form method="post" className="sign-in-form" style={{ height: "70vh" }}>
           <h2 className="title">Sign in</h2>
