@@ -13,6 +13,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Userpages/Profile";
 import Dasboard from "./components/Userpages/Dasboard";
+import LandingPage from "./Pages/LandingPage";
 import Adminlogin from "./Adminlogin";
 export const positioncords = createContext();
 
@@ -38,15 +39,16 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Adminlogin" element={<Adminlogin />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dasboard />} />
+          <Route path="/user/dashboard" element={<Dasboard />} />
           <Route path="/zonalAdmin/dashboard" element={<ZonalAdmin />} />
           <Route path="/tabView" element={<Tabview />} />
           <Route path="/admin/dashboard" element={<Admin />} />
           <Route
-            path="/Report"
+            path="/user/report"
             element={
               <positioncords.Provider value={{ pos, setpos }}>
                 <Form />
