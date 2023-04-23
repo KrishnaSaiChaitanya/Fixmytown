@@ -1,3 +1,4 @@
+// import { json } from "body-parser";
 import { Button } from "primereact/button";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -22,11 +23,14 @@ function Login() {
       },
     });
     let data = await res.json();
-    console.log({ data });
-    if (res.status == 200) {
+    console.log(data);
+    if (res.status === 200) {
       alert("Login successfully");
       setLoading(false);
-      navigate("/dashboard");
+      // console.log(res.data.token);
+      localStorage.setItem("token", JSON.stringify(data.token));
+      localStorage.setItem("user", JSON.stringify(data.token));
+      navigate("/user/dashboard");
     } else {
       console.log("errorr");
     }
@@ -80,16 +84,7 @@ function Login() {
                     }}
                   />
                 </div>
-                {/* <div className="mb-3 form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label className="form-check-label" htmlFor="exampleCheck1">
-                    Remember me
-                  </label>
-                </div> */}
+
                 <div className="p-3 pb-2 flex align-item-center justify-content-center">
                   <Button
                     loading={Loading}

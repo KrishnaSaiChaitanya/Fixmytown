@@ -76,6 +76,7 @@ const Form = ({ submitCallback }) => {
               ? { lat: lat, long: long }
               : { lat: posUser.pos.lat, long: posUser.pos.lng },
             reporturl: result.url,
+            desc: Description,
             cat: value,
           }),
           headers: {
@@ -253,7 +254,7 @@ const Form = ({ submitCallback }) => {
         style={{ backgroundColor: "skyblue" }}
       >
         <div className="flex align-items-center">
-          <img src={mainlogo} height={100} className="" />
+          <img src={mainlogo} style={{ height: "120px" }} className="" />
           <h4 className="p-2">Fix my Town</h4>
         </div>
       </div>
@@ -371,16 +372,16 @@ const Form = ({ submitCallback }) => {
       ) : (
         <div className="col-12 grid grid-nogutter flex align-items-center justify-content-center">
           <div className="col-12 flex align-items-center justify-content-center p-4">
-            <img src="../images/Sucuss.gif" height={400} />
+            <img src="../images/Sucuss.gif" style={{ height: "420px" }} />
           </div>
           <div className="col-12">
             {" "}
             <h4 className="text-center">Reported Sucussfully</h4>
           </div>
           <div className="col-12 flex align-items-center justify-content-center p-3">
-            <Link to={"/dashboard"}>
+            <Link to={"/user/dashboard"}>
               <Button
-                label="G To Dashboard"
+                label="Go To Dashboard"
                 outlined
                 rounded
                 className="w-14rem"

@@ -75,15 +75,15 @@ function Dasboard() {
           style={{ backgroundColor: "skyblue" }}
         >
           <div className="flex align-items-center">
-            <img src={mainlogo} height={100} className="" />
+            <img src={mainlogo} style={{ height: "120px" }} className="" />
             <h4 className="p-2">Fix my Town</h4>
           </div>
         </div>
         <div className="col-12 flex justify-content-center">
-          <img src="../images/dashboard.jpg" height={400} />
+          <img src="../images/dashboard.jpg" style={{ height: "400px" }} />
         </div>
         <div className="col-12 flex align-item-center justify-content-center">
-          <Link to="/report">
+          <Link to="/user/report">
             <Button label="Report to us" rounded className="w-26rem" />
           </Link>
         </div>
@@ -196,7 +196,7 @@ function Dasboard() {
           </div>
         ) : (
           <div className=" col-12 flex align-item-center justify-content-center">
-            <img src="../images/gear-loader.gif" height={300} />
+            <img src="../images/gear-loader.gif" style={{ height: "350px" }} />
           </div>
         )}
       </div>

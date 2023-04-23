@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "../styles.css";
-import Categories from "./Categories"
+
 export default function LandingPage() {
   const [open, setOpen] = useState("false");
   function handleClick() {
@@ -114,7 +114,10 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4" style={{backgroundColor : "#f5f5f5"}}>
+      <div
+        className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4"
+        style={{ backgroundColor: "#f5f5f5" }}
+      >
         <div className="hidden md:w-2/5 md:block">
           <img src={""} alt="img.." className="h-11/12 w-11/12" />
         </div>
@@ -136,7 +139,10 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4" style={{backgroundColor : "#f5f5f5"}}>
+      <div
+        className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4"
+        style={{ backgroundColor: "#f5f5f5" }}
+      >
         <div className="hidden md:w-2/5 md:block">
           <img src={""} alt="img.." className="h-11/12 w-11/12" />
         </div>
@@ -157,7 +163,6 @@ export default function LandingPage() {
           <img src={""} alt="img.." className="h-11/12 w-11/12" />
         </div>
       </div>
-
     </div>
   );
 }

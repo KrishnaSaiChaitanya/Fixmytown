@@ -101,7 +101,7 @@ function Map(props) {
             >
               <Popup>
                 <div className="">
-                  <img src={itm.reporturl} height={150} className="p-1" />
+                  <img src={itm.reporturl} className="p-1" height={100} />
                   <div
                     style={{
                       display: "flex",
