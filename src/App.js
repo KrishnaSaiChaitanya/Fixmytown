@@ -8,7 +8,6 @@ import { getCoordinates } from "./components/Utilfunc";
 import Form from "./components/Userpages/Form";
 import Admin from "./components/Admin/Admin";
 import ZoneSelector from "./components/Mapcomponents/ZoneSelector";
-import ZonalAdmin from "./components/ZonalAdmin/ZonalAdmin";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Userpages/Profile";
@@ -48,7 +47,6 @@ function App() {
 
           <Route path="/profile" element={<Profile />} />
           <Route path="/user/dashboard" element={<Dasboard />} />
-          <Route path="/zonalAdmin/dashboard" element={<ZonalAdmin />} />
           <Route path="/tabView" element={<Tabview />} />
           <Route path="/admin/dashboard" element={<Admin />} />
           <Route

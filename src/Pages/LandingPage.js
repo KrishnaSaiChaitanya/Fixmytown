@@ -48,7 +48,7 @@ export default function LandingPage() {
       <div className="px-5 mx-auto flex justify-center md:py-10 md:justify-between md:px-14 items-center background_img" style={{height : "85vh"}}>
         <div className="flex flex-col gap-6 py-16 justify-center items-center md:items-start">
           <p className="hidden md:block text-lg text-clr-primary">
-            Let's <strong>Begins</strong>
+            Let's <strong>Begin</strong>
           </p>
           <h2
             className="font-bold md:text-5xl tracking-wide text-hero-clr text-4xl"

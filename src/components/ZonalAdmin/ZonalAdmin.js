@@ -356,6 +356,6 @@ function ZonalAdmin() {
           template={{ layout: "PrevPageLink CurrentPageReport NextPageLink" }}
         />
       </div>
-    </>
+      </div>
   );
 }
