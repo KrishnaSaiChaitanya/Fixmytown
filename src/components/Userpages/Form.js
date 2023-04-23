@@ -19,7 +19,7 @@ const Form = ({ submitCallback }) => {
   const items = [
     { name: "Sewage", value: "Sewage" },
     { name: "Litter", value: "Litter" },
-    { name: "Pithole", value: "Pithole" },
+    { name: "Pothole", value: "Pothole" },
   ];
   const posUser = useContext(positioncords);
   console.log("i am from form", posUser.pos.lat, posUser.pos.lng);

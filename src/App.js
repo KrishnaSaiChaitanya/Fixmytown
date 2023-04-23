@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import { createContext, useEffect, useState } from "react";
 import Tabview from "./components/Mapcomponents/Tabview";
-import { getCoordinates, isInCircle } from "./components/Utilfunc";
+import { getCoordinates } from "./components/Utilfunc";
 
 import Form from "./components/Userpages/Form";
 import Admin from "./components/Admin/Admin";
@@ -15,7 +15,6 @@ import Profile from "./components/Userpages/Profile";
 import Dasboard from "./components/Userpages/Dasboard";
 import LandingPage from "./Pages/LandingPage";
 import Adminlogin from "./Adminlogin";
-import PaginatorBasicDemo from "./components/Userpages/PaginatorBasicDemo";
 export const positioncords = createContext();
 
 function App() {
@@ -47,7 +46,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/user/dashboard" element={<Dasboard />} />
           <Route path="/zonalAdmin/dashboard" element={<ZonalAdmin />} />
-          <Route path="/dashboard" element={<PaginatorBasicDemo />} />
           <Route path="/tabView" element={<Tabview />} />
           <Route path="/admin/dashboard" element={<Admin />} />
           <Route

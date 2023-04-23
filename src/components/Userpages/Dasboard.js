@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import { getCoordinates } from "../Utilfunc";
 import { Link } from "react-router-dom";
 import logo from "../../logo.svg";
+import "../../styles.css"
+import person from "../../person.svg"
 import { Divider } from "primereact/divider";
 
 function Dasboard() {
@@ -69,16 +71,28 @@ function Dasboard() {
   ];
   return (
     <div>
-      <div className="grid grid-nogutter">
-        <div
-          className="col-12 flex pl-5 justify-content-center"
-          style={{ backgroundColor: "skyblue" }}
-        >
-          <div className="flex align-items-center">
-            <img src={logo} height={100} className="" />
-            <h4 className="p-2">Fix my Town</h4>
-          </div>
+      <nav className="md:px-14 px-4 nav-clr mx-auto flex items-center md:flex justify-between sticky top-0" style={{height : "15vh"}}>
+        <img src={logo} style={{height : "100px"}}/>
+        <h4 className="p-2">Fix my Town</h4>
+        <div className="block md:hidden">
+          <button className="custom-img"></button>
         </div>
+        <ul className="custom-nav">
+          {/* <li className="px-2 cursor-pointer text-gray-600">Home</li>
+          <li className="px-2 cursor-pointer text-gray-600">Careers</li>
+          <li className="px-2 cursor-pointer text-gray-600">About Us</li> */}
+          <li className="px-2 py-2">
+
+            <Link to="/profile" style={{textDecoration : "none"}} className="text-clr-primary">
+            <img src={person} style={{height : "30px", width : "30px"}}/>
+            </Link>
+          </li>
+          <li className="px-2 w-32 py-2 button-clr-primary rounded-lg text-center font-medium">
+            <button><Link to="/register" className="text-white" style={{textDecoration : "none"}}>Logout</Link></button>
+          </li>
+        </ul>
+      </nav>
+      <div className="grid grid-nogutter">
         <div className="col-12 flex justify-content-center">
           <img src="../images/dashboard.jpg" style={{ height: "400px" }} />
         </div>
