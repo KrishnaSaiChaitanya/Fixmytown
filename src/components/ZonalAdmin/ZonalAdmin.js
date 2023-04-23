@@ -1,20 +1,188 @@
-import React, { useEffect, useState } from "react";
-import { Paginator } from "primereact/paginator";
-import { TriStateCheckbox } from "primereact/tristatecheckbox";
-import { Inplace, InplaceDisplay, InplaceContent } from "primereact/inplace";
-import { getCoordinates } from "../Utilfunc";
-import { Button } from "primereact/button";
-import person from "../../person.svg";
-import logo from "../../logo.svg";
-import { Dropdown } from "primereact/dropdown";
-import Map from "../Mapcomponents/Map";
-import { Checkbox } from "primereact/checkbox";
-import { Divider } from "primereact/divider";
+// import React, { useEffect, useState } from "react";
+// import { Paginator } from "primereact/paginator";
+// import { TriStateCheckbox } from "primereact/tristatecheckbox";
+// import { Inplace, InplaceDisplay, InplaceContent } from "primereact/inplace";
+
+// import { Button } from "primereact/button";
+
+// function ZonalAdmin() {
+//   const [first, setFirst] = useState(0);
+//   const [value, setValue] = useState(true);
+//   useEffect(() => {}, []);
+//   const onPageChange = (event) => {
+//     setFirst(event.first);
+//   };
+//   const onUpload = (id) => {
+//     const file = document.getElementById(id);
+//     console.log(file);
+//     console.log(file.files[0]);
+//   };
+//   return (
+//     <div>
+//       <div
+//         className="grid grid-nogutter justify-content-center"
+//         style={{ paddingInline: "80px" }}
+//       >
+//         <div className="col-12 grid grid-nogutter p-3">
+//           <div className="col-4">
+//             <Button label="Sewage issues" outlined className="w-6" />
+//           </div>
+//           <div className="col-4">
+//             <Button label="Pothole issues" className="w-6" outlined />
+//           </div>
+//           <div className="col-4">
+//             <Button label="Litter issues" className="w-6" outlined />
+//           </div>
+//         </div>
+//         <div
+//           className="col-12 grid grid-nogutter m-5"
+//           style={{
+//             paddingInline: "30px",
+//             margin: "20px",
+//             border: "1px dotted black",
+//             padding: "20px 20px",
+//           }}
+//         >
+//           <div className="col-1 flex align-items-center justify-content-center">
+//             <TriStateCheckbox
+//               value={value}
+//               onChange={(e) => setValue(e.value)}
+//             />
+//           </div>
+//           <div className="col-4 align-items-center flex justify-content-center">
+//             <img src="../images/waste.png" height={90} />
+//           </div>
+//           <div className="col-6">
+//             <p className="text-center">
+//               Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//               Laboriosam suscipit, similique voluptatibus, ratione totam aliquid
+//               repellat consequuntur, accusantium maxime quam repudiandae?
+//               Repellendus cumque ipsum fugit dolore quod vitae hic quibusdam.
+//             </p>
+//             <p>
+//               <button
+//                 class="btn"
+//                 type="button"
+//                 data-bs-toggle="collapse"
+//                 data-bs-target="#collapseExample"
+//                 aria-expanded="false"
+//                 aria-controls="collapseExample"
+//               >
+//                 <i className="pi pi-angle-down"></i>
+//               </button>
+//             </p>
+//             <div class="collapse" id="collapseExample">
+//               <div class="card card-body">
+//                 <div class="mb-3">
+//                   <label for="formFile" class="form-label">
+//                     Upload File here ..
+//                   </label>
+//                   <input class="form-control" type="file" id="formFile" />
+//                   <div className="p-3">
+//                     <Button
+//                       label="Accept"
+//                       severity="success"
+//                       outlined
+//                       onClick={() => {
+//                         onUpload("formFile");
+//                       }}
+//                     />
+//                   </div>
+//                   <div className="p-3">
+//                     <Button label="Reject" severity="danger" outlined />
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//         <div
+//           className="col-12 grid grid-nogutter m-5"
+//           style={{
+//             paddingInline: "30px",
+//             margin: "20px",
+//             border: "1px dotted black",
+//             padding: "20px 20px",
+//           }}
+//         >
+//           <div className="col-1 flex align-items-center justify-content-center">
+//             <TriStateCheckbox
+//               value={value}
+//               onChange={(e) => setValue(e.value)}
+//             />
+//           </div>
+//           <div className="col-4 align-items-center flex justify-content-center">
+//             <img src="../images/waste.png" height={90} />
+//           </div>
+//           <div className="col-6">
+//             <p className="text-center">
+//               Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//               Laboriosam suscipit, similique voluptatibus, ratione totam aliquid
+//               repellat consequuntur, accusantium maxime quam repudiandae?
+//               Repellendus cumque ipsum fugit dolore quod vitae hic quibusdam.
+//             </p>
+//             <p>
+//               <button
+//                 class="btn"
+//                 type="button"
+//                 data-bs-toggle="collapse"
+//                 data-bs-target="#collapseExample1"
+//                 aria-expanded="false"
+//                 aria-controls="collapseExample1"
+//               >
+//                 <i className="pi pi-angle-down"></i>
+//               </button>
+//             </p>
+//             <div class="collapse" id="collapseExample1">
+//               <div class="card card-body">
+//                 <div class="mb-3">
+//                   <label for="formFile" class="form-label">
+//                     Upload File here ..
+//                   </label>
+//                   <input class="form-control" type="file" id="formFile1" />
+//                   <div className="p-3">
+//                     <Button
+//                       label="Accept"
+//                       severity="success"
+//                       outlined
+//                       onClick={() => {
+//                         onUpload("formFile1");
+//                       }}
+//                     />
+//                   </div>
+//                   <div className="p-3">
+//                     <Button label="Reject" severity="danger" outlined />
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//         <div className="col-12">
+//           <img src="../images/waste.png" height={90} />
+//         </div>
+//         <div className="col-12">
+//           <img src="../images/waste.png" height={90} />
+//         </div>
+//       </div>
+//       <div className="p-3">
+//         <Paginator
+//           first={first}
+//           rows={10}
+//           totalRecords={50}
+//           onPageChange={onPageChange}
+//           template={{ layout: "PrevPageLink CurrentPageReport NextPageLink" }}
+//         />
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default ZonalAdmin;
+
+import React, { useState, useEffect } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { Link } from "react-router-dom";
-import { Dialog } from "primereact/dialog";
-import Map_template from "../Mapcomponents/Map_template";
 
 function ZonalAdmin() {
   const [first, setFirst] = useState(0);
@@ -25,7 +193,6 @@ function ZonalAdmin() {
     long: 81.0245123,
   });
   const [checked, setchecked] = useState(false);
-  const [display, setdisplay] = useState(false);
   const [zones, setzones] = useState([{ name: "Arjunganj" }]);
   const [option1, setoption1] = useState(null);
   const [option2, setoption2] = useState(null);
@@ -60,33 +227,10 @@ function ZonalAdmin() {
     }
     setloading(false);
   };
-  function Mapbutton(data) {
+  function Mapbutton(rowData, column) {
     // console.log("column", column);
     // console.log("rowData", rowData);
-    return (
-      <>
-        <Button
-          icon="pi pi-map-marker"
-          onClick={() => {
-            setdisplay(true);
-          }}
-          rounded
-          size="lg"
-          text
-        />
-        <Dialog
-          className="mt-3"
-          headerStyle={{ textAlign: "center" }}
-          visible={display}
-          style={{ width: "60vw", height: "70vh" }}
-          onHide={() => {
-            setdisplay(false);
-          }}
-        >
-          <Map_template center={data.center} radius={data.radius} />
-        </Dialog>
-      </>
-    );
+    return <Button icon="pi pi-map-marker" rounded size="lg" text />;
   }
 
   useEffect(() => {
@@ -132,54 +276,17 @@ function ZonalAdmin() {
   };
   return (
     <div>
-      <nav
-        className="md:px-14 px-4 nav-clr mx-auto flex items-center md:flex justify-between sticky top-0"
-        style={{ height: "15vh" }}
-      >
-        <img src={logo} style={{ height: "100px" }} />
-        <h4 className="p-2">Fix my Town</h4>
-        <div className="block md:hidden">
-          <button className="custom-img"></button>
-        </div>
-        <ul className="custom-nav">
-          {/* <li className="px-2 cursor-pointer text-gray-600">Home</li>
-          <li className="px-2 cursor-pointer text-gray-600">Careers</li>
-          <li className="px-2 cursor-pointer text-gray-600">About Us</li> */}
-          <li className="px-2 py-2">
-            <Link
-              to="/profile"
-              style={{ textDecoration: "none" }}
-              className="text-clr-primary"
-            >
-              <img src={person} style={{ height: "30px", width: "30px" }} />
-            </Link>
-          </li>
-          <li className="px-2 w-32 py-2 button-clr-primary rounded-lg text-center font-medium">
-            <button>
-              <Link
-                to="/register"
-                className="text-white"
-                style={{ textDecoration: "none" }}
-              >
-                Logout
-              </Link>
-            </button>
-          </li>
-        </ul>
-      </nav>
       <div className="grid grid-nogutter">
-        <div className="col-12 flex justify-content-center p-3">
-          <img src="../images/admin.jpg" style={{ height: "50vh" }} />
-        </div>
         <div className="col-12 p-3">
           <h3 className="text-center">Details of Zones and Zonal Admin</h3>
         </div>
         <div
-          className="col-12 "
+          className="col-12 grid grid-nogutter m-5"
           style={{
-            paddingInline: "120px",
-            paddingTop: "30px",
-            paddingBottom: "30px",
+            paddingInline: "30px",
+            margin: "20px",
+            border: "1px dotted black",
+            padding: "20px 20px",
           }}
         >
           <DataTable
@@ -190,15 +297,11 @@ function ZonalAdmin() {
             tableStyle={{ minWidth: "50rem" }}
           >
             <Column
-              field="name"
+              field="cat"
               header="Zone name"
               style={{ width: "25%" }}
             ></Column>
-            <Column
-              header="Zonal Admin"
-              field="adminName"
-              style={{ width: "25%" }}
-            ></Column>
+            <Column header="Zonal Admin" style={{ width: "25%" }}></Column>
 
             <Column
               field="company"
@@ -208,87 +311,88 @@ function ZonalAdmin() {
             ></Column>
           </DataTable>
         </div>
-        <div className="p-4 col-12 flex justify-content-center">
-          <Button
-            icon="pi pi-plus"
-            rounded
-            outlined
-            label="Add Zone"
-            className="w-16rem"
-            aria-label="Search"
-          />
-        </div>
         <Divider className="p-3" />
-
         <div className="col-12 p-3">
           <h3 className="text-center">View reports in your Locality</h3>
         </div>
         <div
-          className="col-12 flex justify-content-center p-3"
-          style={{ border: "1p dotted" }}
+          className="col-12 grid grid-nogutter m-5"
+          style={{
+            paddingInline: "30px",
+            margin: "20px",
+            border: "1px dotted black",
+            padding: "20px 20px",
+          }}
         >
-          <Dropdown
-            value={option1}
-            onChange={(e) => setoption1(e.value)}
-            options={typeofissues}
-            optionLabel="name"
-            placeholder="Choose type of issue"
-            className="w-full md:w-14rem"
-          />
-        </div>
-        <div
-          className="col-12 flex justify-content-center p-3"
-          style={{ border: "1p dotted" }}
-        >
-          <Dropdown
-            value={option2}
-            onChange={(e) => setoption2(e.value)}
-            options={zones}
-            optionLabel="name"
-            placeholder="Select Zone"
-            className="w-full md:w-14rem"
-          />
-        </div>
-        <div className="col-12 flex justify-content-center align-item-center p-2">
-          <div className="p-2">
-            <Checkbox
-              onChange={(e) => setchecked(e.checked)}
-              checked={checked}
-            ></Checkbox>
-            <label className="pl-2">See Reports in all Zones</label>
+          <div className="col-1 flex align-items-center justify-content-center">
+            <TriStateCheckbox
+              value={value}
+              onChange={(e) => setValue(e.value)}
+            />
+          </div>
+          <div className="col-4 align-items-center flex justify-content-center">
+            <img src="../images/waste.png" height={90} />
+          </div>
+          <div className="col-6">
+            <p className="text-center">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Laboriosam suscipit, similique voluptatibus, ratione totam aliquid
+              repellat consequuntur, accusantium maxime quam repudiandae?
+              Repellendus cumque ipsum fugit dolore quod vitae hic quibusdam.
+            </p>
+            <p>
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseExample1"
+                aria-expanded="false"
+                aria-controls="collapseExample1"
+              >
+                <i className="pi pi-angle-down"></i>
+              </button>
+            </p>
+            <div class="collapse" id="collapseExample1">
+              <div class="card card-body">
+                <div class="mb-3">
+                  <label for="formFile" class="form-label">
+                    Upload File here ..
+                  </label>
+                  <input class="form-control" type="file" id="formFile1" />
+                  <div className="p-3">
+                    <Button
+                      label="Accept"
+                      severity="success"
+                      outlined
+                      onClick={() => {
+                        onUpload("formFile1");
+                      }}
+                    />
+                  </div>
+                  <div className="p-3">
+                    <Button label="Reject" severity="danger" outlined />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="col-12">
-          <div className="p-3 pb-2 flex align-item-center justify-content-center">
-            <Button
-              label="Apply Filters"
-              rounded
-              className="w-3"
-              outlined
-              onClick={handleSubmit}
-            />
-          </div>
+          <img src="../images/waste.png" height={90} />
         </div>
-        {!loading ? (
-          <div className="col-12 py-3" style={{ padding: "130px" }}>
-            <Map
-              center={coords}
-              url={
-                !option1
-                  ? "../images/sewage.png"
-                  : `../images/${option1.code}.png`
-              }
-              data={data}
-            />
-          </div>
-        ) : (
-          <div className=" col-12 flex align-item-center justify-content-center">
-            <img src="../images/gear-loader.gif" style={{ height: "350px" }} />
-          </div>
-        )}
+        <div className="col-12">
+          <img src="../images/waste.png" height={90} />
+        </div>
       </div>
-    </div>
+      <div className="p-3">
+        <Paginator
+          first={first}
+          rows={10}
+          totalRecords={50}
+          onPageChange={onPageChange}
+          template={{ layout: "PrevPageLink CurrentPageReport NextPageLink" }}
+        />
+      </div>
+    </>
   );
 }
-
-export default ZonalAdmin;

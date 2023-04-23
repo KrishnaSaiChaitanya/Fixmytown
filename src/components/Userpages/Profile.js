@@ -110,9 +110,9 @@ export default function Profile() {
 
         <div className="col-6 flex align-items-center justify-content-center">
           <div className="">
-            <h4 className="tet-center p-2">Name : </h4>
-            <h4 className="tet-center p-2">Email : </h4>
-            <h4 className="tet-center p-2">Number of reports : </h4>
+            <h4 className="tet-center p-2">Name : Jitendra Abhiram</h4>
+            <h4 className="tet-center p-2">Email : abhiram@gmail.com</h4>
+            <h4 className="tet-center p-2">Number of reports : 3</h4>
           </div>
         </div>
       </div>

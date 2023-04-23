@@ -54,14 +54,19 @@ export default function LandingPage() {
             className="font-bold md:text-5xl tracking-wide text-hero-clr text-4xl"
             style={{ lineHeight: "3.5rem" }}
           >
-            Cleaning our <span className="text-clr-primary"> Streets </span>
+            Join us in <span className="text-clr-primary"> building sustainable communities, </span>
             <br />
-            One <span className="text-clr-primary">fix</span> at a time
+            One <span className="text-clr-primary">Click</span> at a time.
           </h2>
           <p className="text-gray-600 text-sm tracking-wide">
-            Iduino is an intresting platform that will teach
-            <br />
-            you in more an interactive way
+          Improving your community with our user-friendly platform.
+          <br/>
+           Report public issues like littering, sewage, and potholes with ease. 
+           <br/>
+           Once reported local authorities promptly address and resolve reported issues.
+           <br/>
+            Enjoy a cleaner, safer, and healthier living environment.
+
           </p>
           <div className="block md:hidden">
             <img src={homeImg} alt="img." className="h-11/12 w-11/12" />
@@ -94,82 +99,76 @@ export default function LandingPage() {
         <div className="flex-direction py-10 md:flex gap-10 px-5">
           <div className="flex flex-col gap-2 button-clr-cards px-4 py-7 rounded-xl justify-center min-h-fit w-1/3">
             <img src={garbage} alt="garbage"/>
-            <h4 className="text-white font-bold">Professional Teacher</h4>
+            <h4 className="text-white font-bold">Public Littering</h4>
             <p className="text-white font-thin text-sm">
               {" "}
-              We take pride in our team of teachers who are subject matter
-              experts and have extensive teaching experience. Our teachers are
-              dedicated to delivering high-quality education and ensuring
-              student success.
+              Public littering is a major environmental issue that has a toll on both human and planet health. It is important to dispose of waste properly so through our web application we could tackle this problem and get all the waste properly disposed of.
             </p>
           </div>
           <div className="flex flex-col gap-2 button-clr-cards px-4 py-7 rounded-xl justify-center min-h-fit w-1/3">
             <img src={sewage} alt="sewage"/>
-            <h4 className="text-white font-bold">Course Certificate </h4>
+            <h4 className="text-white font-bold">Sewerage Mismanagement</h4>
             <p className="text-white font-thin text-sm">
               {" "}
-              Upon completing a course on our online education website, students
-              will receive a certificate of completion to showcase their new
-              skills and knowledge. Our certificates are recognized by industry
-              professionals.
+              Stop the spread of disease and pollution caused by sewerage mismanagement. Join us in building cleaner and healthier communities. Report any sewerage mismanagement with one click.
+
             </p>
           </div>
           <div className="flex flex-col gap-2 button-clr-cards px-4 py-7 rounded-xl justify-center min-h-fit w-1/3">
             <img src={pothole} alt="pothole"/>
-            <h4 className="text-white font-bold">Interesting Learning</h4>
+            <h4 className="text-white font-bold">Potholes Repair</h4>
             <p className="text-white font-thin text-sm">
               {" "}
-              Our courses are designed to engage learners and make the learning
-              experience enjoyable. We use interactive tools and multimedia to
-              create an immersive and stimulating learning environment.
+              Potholes are road hazards that can damage vehicles and pose safety risks to drivers and pedestrians. Report potholes on our platform and the local authorities would fix them, ensuring safer and smoother roads for everyone.
+
             </p>
           </div>
         </div>
       </div>
 
-      <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4" style={{backgroundColor : "#f5f5f5"}}>
+      {/* <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4" style={{backgroundColor : "#f5f5f5"}}>
         <div className="hidden md:w-2/5 md:block">
-          <img src={""} alt="img.." className="h-11/12 w-11/12" />
+          <img src={"number1"} alt="img.." className="w-2/5" />
         </div>
         <div className="flex flex-col px-4 md:w-3/5 gap-3">
           <span className="text-4xl font-semibold">Step 1</span>
           <br />
-          <span>REGISTER ON OUR AMAZING WEBSITE !</span>
+          <span>JOIN OUR INCREDIBLE WEBSITE BY COMPLETING THE REGISTRATION PROCESS TODAY!</span>
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4">
+      {/* <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4">
         <div className="flex flex-col px-4 md:w-3/5 gap-3">
           <span className="text-4xl font-semibold">Step 2</span>
           <br />
-          <span>REPORT THE ISSUE AND THE RELEVANT MNC</span>
+          <span>REPORT THE ISSUES THAT PERTAIN TO THE RELATED MATTERS IMMEDIATELY...</span>
         </div>
         <div className="hidden md:w-1/3 md:block">
           <img src={number2} alt="img.." className="w-2/5" />
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4" style={{backgroundColor : "#f5f5f5"}}>
+      {/* <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4" style={{backgroundColor : "#f5f5f5"}}>
         <div className="hidden md:w-2/5 md:block">
-          <img src={""} alt="img.." className="h-11/12 w-11/12" />
+          <img src={"number3"} alt="img.." className="w-2/5" />
         </div>
         <div className="flex flex-col px-4 md:w-3/5 gap-3">
           <span className="text-4xl font-semibold">Step 3</span>
           <br />
           <span>ADMIN WILL BE NOTIFIED AND REPORT WILL BE REVIEWED</span>
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4">
+      {/* <div className="flex w-full h-full items-center md:px-6 py-6 gap-10 px-4">
         <div className="flex flex-col px-4 md:w-3/5 gap-3">
           <span className="text-4xl font-semibold">Step 4</span>
           <br />
-          <span>GET YOUR ISSUE RESOLVED !</span>
+          <span>STAY CALM; WE'LL RESOLVE YOUR ISSUES AND COOL THINGS DOWN! </span>
         </div>
         <div className="hidden md:w-1/3 md:block">
           <img src={number4} alt="img.." className="w-2/5" />
         </div>
-      </div>
-    </div>
-  );
+      </div> */}
+ </div>
+ );
 }
